@@ -1,0 +1,1 @@
+// This is another option to pass variable values. You can use with -var-file option in the command line

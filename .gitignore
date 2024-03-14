@@ -1,0 +1,6 @@
+firstVm/.terraform/
+vpc/.terraform/
+firstVm/terraform.tfstate
+vpc/terraform.tfstate
+vm_module_example/vm1/.terraform/
+vpc/vm_module_example/vm1/terraform.tfstate
