@@ -5,7 +5,7 @@ resource "aws_instance" "public_ec2" {
   key_name                    = "myKey"
   availability_zone           = var.az["az1"]
   vpc_security_group_ids      = [aws_security_group.allow_traffic.id]
-  subnet_id                   = aws_subnet.public_subnet.id
+  subnet_id                   = aws_subnet.subnet["public_subnet"].id
   associate_public_ip_address = true
   user_data                   = <<-EOF
         #!/bin/bash
@@ -26,10 +26,10 @@ resource "aws_instance" "private_ec2" {
 
   ami                    = var.ami_image
   instance_type          = var.instance_type
-  key_name               = "myKey"
+  key_name               = data.aws_key_pair.key_ec2.key_name
   availability_zone      = var.az["az2"]
   vpc_security_group_ids = [aws_security_group.allow_traffic_for_private.id]
-  subnet_id              = aws_subnet.private_subnet.id
+  subnet_id              = aws_subnet.subnet["private_subnet"].id
   user_data              = <<-EOF
         #!/bin/bash
          #!/bin/bash

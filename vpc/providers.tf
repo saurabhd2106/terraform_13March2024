@@ -5,19 +5,27 @@ terraform {
       version = "5.40.0"
     }
   }
- backend "s3" {
+  backend "s3" {
 
-    bucket = "terraform-saurabh-14marc2024"  
-    key = "state_file/terraform.tfstate"
+    bucket = "terraform-saurabh-14marc2024"
+    key    = "state_file/terraform.tfstate"
     region = "us-east-1"
 
     dynamodb_table = "state_lock_saurabh"
   }
- 
+
 }
 
 provider "aws" {
   # Configuration options
 
   region = "us-east-1"
+}
+
+provider "aws" {
+  # Configuration options
+
+  alias = "aws_west"
+
+  region = "us-west-1"
 }

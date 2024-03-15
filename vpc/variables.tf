@@ -73,3 +73,16 @@ variable "instance_type" {
   type = string
 
 }
+
+
+variable "subnet" {
+
+  type        = any
+  description = "This variable holds all details required to create a subnet"
+
+}
+
+variable "inbound_traffic" {
+  type = any
+}
+
